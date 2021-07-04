@@ -30,14 +30,15 @@ class PedidoCompleto {
 //
 
 let tipoMenu = prompt(`Qué deseas pedir hoy? Escribí "vegano", "comun" o "economico"`).toLowerCase();
+let cantidadMenu = parseInt(prompt(`Cuántos deseas pedir?`))
 
 function precioPlato() {
     if (tipoMenu == "vegano") {
-        precioP = 180
+        precioP = 180 * cantidadMenu
     } else if (tipoMenu == "comun") {
-        precioP = 200
+        precioP = 200 * cantidadMenu
     } else if (tipoMenu == "economico") {
-        precioP = 150
+        precioP = 150 * cantidadMenu
     } else {
         alert(`Ups! Parece que no tenemos ese plato :(`)
     }
@@ -77,6 +78,33 @@ let precio2 = precioZona();
 //
 
 const PedidoDeseado = new PedidoCompleto(tipoMenu, precio1, precio2);
-console.log(PedidoDeseado);
 
-alert(`El precio de tu pedido es ${PedidoDeseado.precioFinal()}`);
+let pregunta = confirm(`Deseas pedir algo más?`)
+
+if (pregunta == false) {
+    alert(`El precio de tu pedido es ${PedidoDeseado.precioFinal()}`);
+} else {
+    let MenuCompleto = []
+    MenuCompleto.push(PedidoDeseado)
+
+    tipoMenu = prompt(`Qué deseas pedir hoy? Escribí "vegano", "comun" o "economico"`).toLowerCase();
+    cantidadMenu = parseInt(prompt(`Cuántos deseas pedir?`))
+
+    function precioPlato() {
+        if (tipoMenu == "vegano") {
+            precioP = 180 * cantidadMenu
+        } else if (tipoMenu == "comun") {
+            precioP = 200 * cantidadMenu
+        } else if (tipoMenu == "economico") {
+            precioP = 150 * cantidadMenu
+        } else {
+            alert(`Ups! Parece que no tenemos ese plato :(`)
+        }
+        return precioP
+    }
+
+    precio1 = precioPlato()
+
+    const PedidoDeseado2 = new PedidoCompleto(tipoMenu, precio1, 0)
+    alert(`El precio de tu pedido es ${PedidoDeseado.precioFinal() + PedidoDeseado2.precioFinal()} `)
+};
