@@ -1,150 +1,127 @@
-let MenuCompleto = []
+// VARIABLES y RECURSOS --------------------------------------------------------
 
-class PedidoCompleto {
-    constructor(costo, envio) {
+let arrayPlatos = []
+
+class Plato {
+    constructor(plato, costo) {
+        this.plato = plato;
         this.costo = costo;
-        this.envio = envio;
     }
 
-    precioFinal() {
-        let valorTotal = this.costo + this.envio;
-        return valorTotal;
+    precioPlato() {
+        let costoPlato = this.costo
+        return costoPlato
     }
 }
 
-//
-//
-//
+// identificadores 
 
-alert(`Bienvenide a la calculadora de menú`)
+let btnAdd = document.getElementById("agregar")
+let titulo = document.getElementById("titulo")
+let parr1 = document.getElementById("parr1")
+let parr2 = document.getElementById("parr2")
+let parr3 = document.getElementById("parr3")
+let btnSig = document.getElementById("sig")
+let div1 = document.getElementById("div1")
 
-/*function precioP() {
-    let precio
-    if (platoElegido == "vegano") {
-        precio = 180
-    } else if (platoElegido == "comun") {
-        precio = 200
-    } else if (platoElegido == "economico") {
-        precio = 150
-    } else {
-        alert(`Ups! Parece que no tenemos ese plato :( Recargá y volvé a intentarlo`)
-        throw new RangeError(`Ups! Parece que no tenemos ese plato :(`)
-    }
-    return precio
-}*/
+let newInput = document.createElement("input")
+newInput.setAttribute("placeholder", "Escribí aquí la zona")
+newInput.setAttribute("id", "newInput")
 
-let platoElegido = prompt(`Qué deseas pedir hoy? Escribí "comun", "vegano" o "economico"`).toLowerCase()
+// EVENTOS --------------------------------------------------------------------
+
+btnAdd.addEventListener("click", precioP)
+btnSig.addEventListener("click", cambiar)
+
+// FUNCIONES ------------------------------------------------------------------
 
 function precioP() {
+
     let precio
-    do {
-        if (errorPlato == true) {
-            platoElegido = prompt(`Parece que no tenemos ese plato, escribí "comun", "vegano" o "economico"`).toLowerCase()
-            errorPlato = false
-        }
-        if (platoElegido == "vegano") {
-            precio = 180
-        } else if (platoElegido == "comun") {
-            precio = 200
-        } else if (platoElegido == "economico") {
-            precio = 150
-        } else {
-            errorPlato = true
-        }
-    } while (errorPlato == true)
+    let entrada1 = document.getElementById("entrada1").value
+
+    if (entrada1 == "vegano") {
+        precio = 180
+
+    } else if (entrada1 == "comun") {
+        precio = 200
+
+    } else if (entrada1 == "economico") {
+        precio = 150
+
+    }
+
+    let pedido = new Plato(entrada1, precio)
+    arrayPlatos.push(pedido)
+
+    console.log(arrayPlatos);
 
     return precio
 }
 
-let errorPlato = false
-
-let precioPlato = precioP()
-
-//
-//
 //
 
-/*function precioZ() {
-    let precio
-    if (zonaElegida == "z1") {
-        precio = 20
-    } else if (zonaElegida == "z2") {
-        precio = 30
-    } else if (zonaElegida == "z3") {
-        precio = 50
-    } else {
-        alert(`Ups! Parece que no realizamos envíos a esa zona :( Recargá y volvé a intentarlo`)
-        throw new RangeError(`Ups! Parece que no realizamos envíos a esa zona :(`)
-    }
-    return precio
-}*/
+function cambiar() {
 
-let zonaElegida = prompt(`A qué zona enviaremos el pedido? Escribí "z1", "z2" o "z3"`).toLowerCase()
+    // cambiar los parrafos
+    titulo.textContent = "Ahora elegí la zona de envío"
+    parr1.textContent = `Escribí "z1", "z2" o "z3"`
+    parr2.textContent = ""
+    parr3.textContent = "Luego, clickeá en listo"
+
+    //cambiar input
+    div1.removeChild(entrada1)
+    div1.appendChild(newInput)
+
+    //crear boton listo
+    div1.removeChild(btnSig)
+    div1.removeChild(btnAdd)
+    let btnListo = document.createElement("button")
+    btnListo.textContent = "Listo"
+    div1.appendChild(btnListo)
+    btnListo.setAttribute("id", "btnListo")
+    btnListo.addEventListener("click", total)
+}
+
+//
 
 function precioZ() {
+    //calculo precio de zona
     let precio
-    do {
-        if (errorZona == true) {
-            zonaElegida = prompt(`Parece que no hacemos envíos a esa zona, escribí "z1", "z2" o "z3"`).toLowerCase()
-            errorZona = false
-        }
-        if (zonaElegida == "z1") {
-            precio = 20
-        } else if (zonaElegida == "z2") {
-            precio = 30
-        } else if (zonaElegida == "z3") {
-            precio = 50
-        } else {
-            errorZona = true
-        }
-    } while (errorZona == true)
+    let entrada2 = document.getElementById("newInput").value
 
+    if (entrada2 == "z1") {
+        precio = 20
+
+    } else if (entrada2 == "z2") {
+        precio = 30
+
+    } else if (entrada2 == "z3") {
+        precio = 50
+    }
     return precio
 }
 
-let errorZona = false
-
-let precioZona = precioZ()
-
+precioZ()
 
 //
-//
-//
 
-const Pedido = new PedidoCompleto(precioPlato, precioZona)
-MenuCompleto.push(Pedido)
+function total() {
+    let precioZona = precioZ()
+    console.log(precioZona);
 
-//
-//
-//
+    let total = 0
 
-let pregunta = confirm(`Deseas pedir algo mas?`)
-
-if (pregunta == true) {
-    do {
-        platoElegido = prompt(`Qué más deseás agregar? Escribí "comun", "vegano" o "economico"`).toLowerCase()
-        precioP();
-        precioPlato = precioP();
-
-        const Pedido = new PedidoCompleto(precioPlato, 0)
-        MenuCompleto.push(Pedido)
-
-    } while (confirm(`Deseas pedir algo mas?`) == true)
-};
-
-//
-//
-//
-
-let total = 0
-
-function precioCompleto() {
-    for (let x = 0; x < MenuCompleto.length; x++) {
-        total = total + MenuCompleto[x].precioFinal()
+    for (let x = 0; x < arrayPlatos.length; x++) {
+        total = total + arrayPlatos[x].precioPlato()
     }
-    alert(`El valor de tu pedido es $${total}`)
-}
 
-precioCompleto();
-console.log(MenuCompleto);
-console.log((`El valor de tu pedido es ${total}`));
+    totalFinal = total + precioZona
+
+    console.log(`El valor es ${totalFinal}`)
+
+    let newParr = document.createElement("p")
+    newParr.innerText = `El valor es ${totalFinal}`
+    div2.appendChild(newParr)
+
+}
