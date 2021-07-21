@@ -37,6 +37,8 @@ btnSig.addEventListener("click", cambiar)
 
 function precioP() {
 
+    alert(`Plato agregado correctamente!`)
+
     let precio
     let entrada1 = document.getElementById("entrada1").value
 
@@ -107,6 +109,7 @@ precioZ()
 //
 
 function total() {
+
     let precioZona = precioZ()
     console.log(precioZona);
 
