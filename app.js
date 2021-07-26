@@ -66,15 +66,15 @@ function precioP() {
         return precio
     }
 
-    if (entrada1 == "vegano ") {
+    if (entrada1 == "vegano") {
         precio = 180
         calculoPrecio();
 
-    } else if (entrada1 == "comun " || "común ") {
+    } else if (entrada1 == "comun") {
         precio = 200
         calculoPrecio();
 
-    } else if (entrada1 == "economico " || "económico ") {
+    } else if (entrada1 == "economico") {
         precio = 150
         calculoPrecio();
 
@@ -116,17 +116,16 @@ function precioZ() {
     let precio
     let entrada2 = $(`#newInput`).val().toLowerCase()
 
-    if (entrada2 == "z1 ") {
+    if (entrada2 == "z1") {
         precio = 20
 
-    } else if (entrada2 == "z2 ") {
+    } else if (entrada2 == "z2") {
         precio = 30
 
-    } else if (entrada2 == "z3 ") {
+    } else if (entrada2 == "z3") {
         precio = 50
     }
     return precio
-
 
 };
 
@@ -165,5 +164,3 @@ function total() {
 function reload() {
     location.reload();
 };
-
-//----------------
