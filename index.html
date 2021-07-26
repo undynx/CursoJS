@@ -5,26 +5,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,400&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;1,400&display=swap" rel="stylesheet">
+
+    <!-- estilos -->
+    <link rel="stylesheet" href="./styles.css">
+
     <title>Maité Martínez</title>
 </head>
 
 <body>
 
-    <h1>Bienvenidx a la calculadora de menú :)</h1>
+    <h1>Restaurante Frog's</h1>
+
+    <h3 id="titulo">¿Qué deseas pedir hoy?</h3>
 
     <div id="div1">
-        <h3 id="titulo">Qué deseas pedir?</h3>
+
         <p id="parr1">Escribí "vegano", "comun" o "economico"</p>
         <input type="text" id="entrada1" placeholder="Escribí aquí">
         <button id="agregar">Agregar al carrito</button>
         <p id="parr2">Si deseas pedir algo más escribilo en el input y presioná agregar nuevamente</p>
         <p id="parr3">Sino, presioná el botón siguiente!</p>
         <button id="sig">Siguiente</button>
+
     </div>
 
-    <hr>
+    <br>
 
     <div id="div2"></div>
+
+    <div id="notification" style="display: none;">
+        <span class="dismiss"><a title="dismiss this notification">OK</a></span> Pedido agregado correctamente
+    </div>
+
+    <div id="popup-error" style="display: none;">
+        <span class="dismiss"><a title="dismiss this notification">OK</a></span> Ups! Parece que hubo un error, volvé a intentarlo
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="./app.js"></script>

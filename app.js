@@ -28,39 +28,60 @@ let div1 = $("#div1")
 // EVENTOS --------------------------------------------------------------------
 
 btnAdd.on("click", precioP);
-btnSig.on("click", cambiar)
+btnSig.on("click", cambiarTextos)
 
 // FUNCIONES ------------------------------------------------------------------
 
-function precioP() {
+function notificacion() {
+    $("#notification").fadeIn("slow");
+    $(".dismiss").click(function() {
+        $("#notification").fadeOut("slow");
+    });
+}
 
-    alert(`Plato agregado correctamente!`)
+function error() {
+    $("#popup-error").fadeIn("slow");
+    $(".dismiss").click(function() {
+        $("#popup-error").fadeOut("slow");
+    });
+}
+
+function precioP() {
 
     let precio
     let entrada1 = $(`#entrada1`).val()
 
+    function calculoPrecio() {
+        let pedido = new Plato(entrada1, precio)
+        arrayPlatos.push(pedido)
+
+        console.log(arrayPlatos);
+        notificacion();
+        return precio
+    }
+
     if (entrada1 == "vegano") {
         precio = 180
+        calculoPrecio();
 
     } else if (entrada1 == "comun") {
         precio = 200
+        calculoPrecio();
 
     } else if (entrada1 == "economico") {
         precio = 150
+        calculoPrecio();
 
+    } else {
+        error()
     }
 
-    let pedido = new Plato(entrada1, precio)
-    arrayPlatos.push(pedido)
 
-    console.log(arrayPlatos);
-
-    return precio
 }
 
 //
 
-function cambiar() {
+function cambiarTextos() {
 
     // cambiar los parrafos
     titulo.text("Ahora elegí la zona de envío");
@@ -81,7 +102,6 @@ function cambiar() {
     let btnListo = $("#btnListo")
     btnListo.on("click", total)
 
-
 }
 
 //
@@ -90,6 +110,7 @@ function precioZ() {
     //calculo precio de zona
     let precio
     let entrada2 = $(`#newInput`).val()
+
 
     if (entrada2 == "z1") {
         precio = 20
@@ -101,13 +122,14 @@ function precioZ() {
         precio = 50
     }
     return precio
-}
 
-precioZ()
+}
 
 //
 
 function total() {
+
+    precioZ()
 
     let precioZona = precioZ()
     console.log(precioZona);

@@ -1,0 +1,91 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #b4d6c1;
+    padding-top: 10px;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 25px;
+    border-left: 7px solid #4E9C81;
+    padding-left: 2px;
+}
+
+h3 {
+    font-size: 19px;
+    border-left: 7px solid #4E9C81;
+    padding-left: 2px;
+}
+
+div {
+    border-left: 3px solid #4E9C81;
+    margin-left: 7px;
+}
+
+#div2 {
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #4E9C81;
+}
+
+
+/* pop up */
+
+#notification {
+    position: fixed;
+    top: 0px;
+    width: 96%;
+    z-index: 105;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #4E9C81;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+
+#notification span.dismiss {
+    border: 2px solid #FFF;
+    padding: 0 5px;
+    cursor: pointer;
+    float: left;
+    margin-right: 10px;
+}
+
+#notification a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold
+}
+
+
+/* pop up error */
+
+#popup-error {
+    position: fixed;
+    top: 0px;
+    width: 96%;
+    z-index: 105;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: red;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+
+#popup-error span.dismiss {
+    border: 2px solid #FFF;
+    padding: 0 5px;
+    cursor: pointer;
+    float: left;
+    margin-right: 10px;
+}
+
+#popup-error a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold
+}
