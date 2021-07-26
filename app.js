@@ -18,11 +18,11 @@ class Plato {
 
 let btnAdd = $("#agregar");
 let titulo = $("#titulo");
-let parr1 = $("#parr1")
-let parr2 = $("parr2")
-let parr3 = $("#parr3")
-let btnSig = $("#sig")
-let div1 = $("#div1")
+let parr1 = $("#parr1");
+let parr2 = $("#parr2");
+let parr3 = $("#parr3");
+let btnSig = $("#sig");
+let div1 = $("#div1");
 
 
 // EVENTOS --------------------------------------------------------------------
@@ -32,31 +32,35 @@ btnSig.on("click", cambiarTextos)
 
 // FUNCIONES ------------------------------------------------------------------
 
-function notificacion() {
+function ok() {
     $("#notification").fadeIn("slow");
-    $(".dismiss").click(function() {
+    $(".dismiss").click(setTimeout(function() {
         $("#notification").fadeOut("slow");
-    });
+    }));
 }
+
+//----------------
 
 function error() {
     $("#popup-error").fadeIn("slow");
-    $(".dismiss").click(function() {
+    $(".dismiss").click(setTimeout(function() {
         $("#popup-error").fadeOut("slow");
-    });
+    }));
 }
+
+//----------------
 
 function precioP() {
 
     let precio
-    let entrada1 = $(`#entrada1`).val()
+    let entrada1 = $(`#entrada1`).val().toLowerCase()
 
     function calculoPrecio() {
         let pedido = new Plato(entrada1, precio)
         arrayPlatos.push(pedido)
 
         console.log(arrayPlatos);
-        notificacion();
+        ok();
         return precio
     }
 
@@ -79,15 +83,15 @@ function precioP() {
 
 }
 
-//
+//----------------
 
 function cambiarTextos() {
 
     // cambiar los parrafos
-    titulo.text("Ahora elegí la zona de envío");
+    titulo.text(`Ahora elegí la zona de envío`);
     parr1.text(`Escribí "z1", "z2" o "z3"`);
-    parr2.text(" ");
-    parr3.text("Luego, clickeá en listo");
+    parr2.text(``);
+    parr3.text(`Luego, clickeá en listo`);
 
     //cambiar input
     entrada1.remove();
@@ -104,13 +108,12 @@ function cambiarTextos() {
 
 }
 
-//
+//----------------
 
 function precioZ() {
     //calculo precio de zona
     let precio
-    let entrada2 = $(`#newInput`).val()
-
+    let entrada2 = $(`#newInput`).val().toLowerCase()
 
     if (entrada2 == "z1") {
         precio = 20
@@ -123,9 +126,10 @@ function precioZ() {
     }
     return precio
 
+
 }
 
-//
+//----------------
 
 function total() {
 
@@ -144,7 +148,15 @@ function total() {
 
     console.log(`El valor es ${totalFinal}`)
 
-    div2.append(`
-    El valor es ${totalFinal}`)
+    if (isNaN(totalFinal)) {
 
-}
+        div2.append(`Hubo un error al realizar el cálculo`)
+
+    } else {
+
+        div2.append(`El valor es ${totalFinal}`)
+
+    };
+};
+
+//----------------
