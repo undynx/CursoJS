@@ -16,22 +16,19 @@ class Plato {
 
 // identificadores 
 
-let btnAdd = document.getElementById("agregar")
-let titulo = document.getElementById("titulo")
-let parr1 = document.getElementById("parr1")
-let parr2 = document.getElementById("parr2")
-let parr3 = document.getElementById("parr3")
-let btnSig = document.getElementById("sig")
-let div1 = document.getElementById("div1")
+let btnAdd = $("#agregar");
+let titulo = $("#titulo");
+let parr1 = $("#parr1")
+let parr2 = $("parr2")
+let parr3 = $("#parr3")
+let btnSig = $("#sig")
+let div1 = $("#div1")
 
-let newInput = document.createElement("input")
-newInput.setAttribute("placeholder", "Escribí aquí la zona")
-newInput.setAttribute("id", "newInput")
 
 // EVENTOS --------------------------------------------------------------------
 
-btnAdd.addEventListener("click", precioP)
-btnSig.addEventListener("click", cambiar)
+btnAdd.on("click", precioP);
+btnSig.on("click", cambiar)
 
 // FUNCIONES ------------------------------------------------------------------
 
@@ -40,7 +37,7 @@ function precioP() {
     alert(`Plato agregado correctamente!`)
 
     let precio
-    let entrada1 = document.getElementById("entrada1").value
+    let entrada1 = $(`#entrada1`).val()
 
     if (entrada1 == "vegano") {
         precio = 180
@@ -66,23 +63,25 @@ function precioP() {
 function cambiar() {
 
     // cambiar los parrafos
-    titulo.textContent = "Ahora elegí la zona de envío"
-    parr1.textContent = `Escribí "z1", "z2" o "z3"`
-    parr2.textContent = ""
-    parr3.textContent = "Luego, clickeá en listo"
+    titulo.text("Ahora elegí la zona de envío");
+    parr1.text(`Escribí "z1", "z2" o "z3"`);
+    parr2.text(" ");
+    parr3.text("Luego, clickeá en listo");
 
     //cambiar input
-    div1.removeChild(entrada1)
-    div1.appendChild(newInput)
+    entrada1.remove();
+    div1.append(`
+    <input type="text" id="newInput" placeholder="Escribí aquí la zona">`);
 
     //crear boton listo
-    div1.removeChild(btnSig)
-    div1.removeChild(btnAdd)
-    let btnListo = document.createElement("button")
-    btnListo.textContent = "Listo"
-    div1.appendChild(btnListo)
-    btnListo.setAttribute("id", "btnListo")
-    btnListo.addEventListener("click", total)
+    btnSig.remove();
+    btnAdd.remove();
+    div1.append(`
+    <button id="btnListo">Listo</button>`)
+    let btnListo = $("#btnListo")
+    btnListo.on("click", total)
+
+
 }
 
 //
@@ -90,7 +89,7 @@ function cambiar() {
 function precioZ() {
     //calculo precio de zona
     let precio
-    let entrada2 = document.getElementById("newInput").value
+    let entrada2 = $(`#newInput`).val()
 
     if (entrada2 == "z1") {
         precio = 20
@@ -123,8 +122,7 @@ function total() {
 
     console.log(`El valor es ${totalFinal}`)
 
-    let newParr = document.createElement("p")
-    newParr.innerText = `El valor es ${totalFinal}`
-    div2.appendChild(newParr)
+    div2.append(`
+    El valor es ${totalFinal}`)
 
 }
