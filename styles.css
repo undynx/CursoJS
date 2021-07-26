@@ -2,6 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #b4d6c1;
     padding-top: 10px;
+    padding-left: 5px;
 }
 
 h1 {
@@ -31,7 +32,8 @@ div {
 
 /* pop up */
 
-#notification {
+#notification,
+#popup-error {
     position: fixed;
     top: 0px;
     width: 96%;
@@ -45,19 +47,6 @@ div {
     align-items: center;
 }
 
-
-/* pop up error */
-
 #popup-error {
-    position: fixed;
-    top: 0px;
-    width: 96%;
-    z-index: 105;
-    font-size: 14px;
-    font-weight: bold;
-    color: white;
     background-color: red;
-    padding: 5px;
-    display: flex;
-    align-items: center;
 }

@@ -12,7 +12,7 @@ class Plato {
         let costoPlato = this.costo
         return costoPlato
     }
-}
+};
 
 // identificadores 
 
@@ -23,12 +23,14 @@ let parr2 = $("#parr2");
 let parr3 = $("#parr3");
 let btnSig = $("#sig");
 let div1 = $("#div1");
+let refresh = $("#recargar")
 
 
 // EVENTOS --------------------------------------------------------------------
 
 btnAdd.on("click", precioP);
-btnSig.on("click", cambiarTextos)
+btnSig.on("click", cambiarTextos);
+refresh.on("click", reload);
 
 // FUNCIONES ------------------------------------------------------------------
 
@@ -37,7 +39,7 @@ function ok() {
     $(".dismiss").click(setTimeout(function() {
         $("#notification").fadeOut("slow");
     }));
-}
+};
 
 //----------------
 
@@ -46,7 +48,7 @@ function error() {
     $(".dismiss").click(setTimeout(function() {
         $("#popup-error").fadeOut("slow");
     }));
-}
+};
 
 //----------------
 
@@ -80,8 +82,7 @@ function precioP() {
         error()
     }
 
-
-}
+};
 
 //----------------
 
@@ -106,7 +107,7 @@ function cambiarTextos() {
     let btnListo = $("#btnListo")
     btnListo.on("click", total)
 
-}
+};
 
 //----------------
 
@@ -127,7 +128,7 @@ function precioZ() {
     return precio
 
 
-}
+};
 
 //----------------
 
@@ -150,13 +151,19 @@ function total() {
 
     if (isNaN(totalFinal)) {
 
-        div2.append(`Hubo un error al realizar el cálculo`)
+        div2.append(`Hubo un error al realizar el cálculo. Recargá y volvé a intentarlo`)
 
     } else {
 
         div2.append(`El valor es ${totalFinal}`)
 
     };
+};
+
+//----------------
+
+function reload() {
+    location.reload();
 };
 
 //----------------
