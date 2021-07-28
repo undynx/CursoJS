@@ -28,6 +28,7 @@ let btnCarr = $("#btn-carrito")
 let btnCerrCarr = $("#cerrar-carrito")
 let carrito = $("#carrito")
 let contPedidos = $("#pedidos")
+let displayTotal = $("#displayTotal")
 
 
 // EVENTOS --------------------------------------------------------------------
@@ -183,8 +184,8 @@ function total() {
 
     };
 
-    carrito.append(`
-    <div class="valor">El valor es ${totalFinal}</div>
+    displayTotal.append(`
+    <div class="valor">El valor es $ ${totalFinal}</div>
     `)
 };
 

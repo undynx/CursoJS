@@ -68,6 +68,7 @@ div {
     border: none;
     display: none;
     padding: 20px;
+    overflow-y: scroll;
 }
 
 #titulo-carrito {
@@ -93,8 +94,22 @@ div {
     padding: 5px;
     border-radius: 10px;
     text-align: center;
+    margin: 10px;
+    border: 1px solid darkgray;
 }
 
 .negrita {
+    font-weight: bold;
+}
+
+.valor {
+    position: absolute;
+    bottom: 10%;
+    background-color: antiquewhite;
+    width: 70%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid darkred;
+    text-align: center;
     font-weight: bold;
 }
