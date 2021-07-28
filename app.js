@@ -69,17 +69,30 @@ function precioP() {
         return precio
     }
 
+    function crearCard() {
+        for (let w = 0; w < arrayPlatos.length; w++) {
+            carrito.append(`<div class="kart-card">
+            <p class="negrita">${arrayPlatos[w].plato}</p>
+            <p>$ ${arrayPlatos[w].costo}</p>
+        </div>`)
+        }
+    }
+
+
     if (entrada1 == "vegano") {
         precio = 180
         calculoPrecio();
+        crearCard();
 
     } else if (entrada1 == "comun") {
         precio = 200
         calculoPrecio();
+        crearCard();
 
     } else if (entrada1 == "economico") {
         precio = 150
         calculoPrecio();
+        crearCard();
 
     } else {
         error()
@@ -190,4 +203,24 @@ function cerrarCarr() {
 
 //----------------
 
-arrayPlatos.forEach(element => console.log(element))
+/*
+for (let w = 0; w < arrayPlatos.length; w++) {
+    console.log(`${arrayPlatos[w].plato} sale ${arrayPlatos[w].costo}`);
+}
+
+<div class="kart-card">
+            <p class="negrita">Comun</p>
+            <p>$200</p>
+        </div>
+
+function crearCard() {
+        for (let w = 0; w < arrayPlatos.length; w++) {
+            carrito.append(`<div class="kart-card">
+            <p class="negrita">${arrayPlatos[w].plato}</p>
+            <p>$ ${arrayPlatos[w].costo}</p>
+        </div>`)
+        }
+    }
+*/
+
+//-----------------
