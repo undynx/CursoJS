@@ -91,24 +91,29 @@ function precioP() {
 
 function cambiarTextos() {
 
-    // cambiar los parrafos
-    titulo.text(`Ahora elegí la zona de envío`);
-    parr1.text(`Escribí "z1", "z2" o "z3"`);
-    parr2.text(``);
-    parr3.text(`Luego, clickeá en listo`);
+    if (arrayPlatos.length == 0) {
+        error();
+    } else {
+        // cambiar los parrafos
+        titulo.text(`Ahora elegí la zona de envío`);
+        parr1.text(`Escribí "z1", "z2" o "z3"`);
+        parr2.text(``);
+        parr3.text(`Luego, clickeá en listo`);
 
-    //cambiar input
-    entrada1.remove();
-    div1.append(`
+        //cambiar input
+        entrada1.remove();
+        div1.append(`
     <input type="text" id="newInput" placeholder="Escribí aquí la zona">`);
 
-    //crear boton listo
-    btnSig.remove();
-    btnAdd.remove();
-    div1.append(`
+        //crear boton listo
+        btnSig.remove();
+        btnAdd.remove();
+        div1.append(`
     <button id="btnListo">Listo</button>`)
-    let btnListo = $("#btnListo")
-    btnListo.on("click", total)
+        let btnListo = $("#btnListo")
+        btnListo.on("click", total)
+    }
+
 
 };
 
