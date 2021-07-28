@@ -26,9 +26,9 @@
 
     <h1>Restaurante Maik</h1> <i class="em em-frog" aria-role="presentation" aria-label="FROG FACE"></i>
 
-    <h3 id="titulo">¿Qué deseas pedir hoy?</h3>
+    <h3 id="titulo" class="borde">¿Qué deseas pedir hoy?</h3>
 
-    <div id="div1">
+    <div id="div1" class="borde">
 
         <p id="parr1">Escribí "vegano", "comun" o "economico"</p>
         <input type="text" id="entrada1" placeholder="Escribí aquí">
@@ -45,13 +45,27 @@
 
     <br>
 
-    <div>
-        <button id="recargar">Recargar</button>
+
+    <button id="btn-carrito">Ir al Carrito</button>
+    <button id="recargar">Recargar</button>
+
+
+    <div id="carrito">
+        <span id="headerCarr">
+            <h3 id="titulo-carrito">Carrito</h3>
+            <br>
+            <button id="cerrar-carrito">X</button>
+        </span>
+
+        <div>
+            <p>${entrada1}</p>
+
+        </div>
     </div>
 
 
     <!-- push notifications -->
-    <div id="notification" style="display: none;">
+    <div id="popup-ok" style="display: none;">
         Pedido agregado correctamente &#128513
     </div>
 

@@ -24,6 +24,9 @@ let parr3 = $("#parr3");
 let btnSig = $("#sig");
 let div1 = $("#div1");
 let refresh = $("#recargar")
+let btnCarr = $("#btn-carrito")
+let btnCerrCarr = $("#cerrar-carrito")
+let carrito = $("#carrito")
 
 
 // EVENTOS --------------------------------------------------------------------
@@ -31,23 +34,23 @@ let refresh = $("#recargar")
 btnAdd.on("click", precioP);
 btnSig.on("click", cambiarTextos);
 refresh.on("click", reload);
+btnCarr.click(abrirCarr);
+btnCerrCarr.click(cerrarCarr);
 
 // FUNCIONES ------------------------------------------------------------------
 
 function ok() {
-    $("#notification").fadeIn("slow");
-    $(".dismiss").click(setTimeout(function() {
-        $("#notification").fadeOut("slow");
-    }));
+    $("#popup-ok").slideDown("slow")
+        .delay(2000)
+        .slideUp("slow")
 };
 
 //----------------
 
 function error() {
-    $("#popup-error").fadeIn("slow");
-    $(".dismiss").click(setTimeout(function() {
-        $("#popup-error").fadeOut("slow");
-    }));
+    $("#popup-error").slideDown("slow")
+        .delay(1000)
+        .slideUp("slow")
 };
 
 //----------------
@@ -112,9 +115,10 @@ function cambiarTextos() {
 //----------------
 
 function precioZ() {
-    //calculo precio de zona
+
     let precio
     let entrada2 = $(`#newInput`).val().toLowerCase()
+
 
     if (entrada2 == "z1") {
         precio = 20
@@ -125,7 +129,9 @@ function precioZ() {
     } else if (entrada2 == "z3") {
         precio = 50
     }
-    return precio
+
+    sessionStorage.setItem(`precioZona`, precio)
+
 
 };
 
@@ -135,7 +141,7 @@ function total() {
 
     precioZ()
 
-    let precioZona = precioZ()
+    let precioZona = Number(sessionStorage.getItem(`precioZona`))
     console.log(precioZona);
 
     let total = 0
@@ -150,7 +156,7 @@ function total() {
 
     if (isNaN(totalFinal)) {
 
-        div2.append(`Hubo un error al realizar el cálculo. Recargá y volvé a intentarlo`)
+        error()
 
     } else {
 
@@ -164,3 +170,19 @@ function total() {
 function reload() {
     location.reload();
 };
+
+//----------------
+
+function abrirCarr() {
+    carrito.show()
+}
+
+//----------------
+
+function cerrarCarr() {
+    carrito.hide()
+}
+
+//----------------
+
+arrayPlatos.forEach(element => console.log(element))
