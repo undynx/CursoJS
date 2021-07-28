@@ -27,6 +27,7 @@ let refresh = $("#recargar")
 let btnCarr = $("#btn-carrito")
 let btnCerrCarr = $("#cerrar-carrito")
 let carrito = $("#carrito")
+let contPedidos = $("#pedidos")
 
 
 // EVENTOS --------------------------------------------------------------------
@@ -70,13 +71,15 @@ function precioP() {
     }
 
     function crearCard() {
-        for (let w = 0; w < arrayPlatos.length; w++) {
-            carrito.append(`<div class="kart-card">
-            <p class="negrita">${arrayPlatos[w].plato}</p>
-            <p>$ ${arrayPlatos[w].costo}</p>
-        </div>`)
-        }
+
+        let platoImp = arrayPlatos[arrayPlatos.length - 1];
+
+        carrito.append(`<div class="kart-card">
+            <p class="negrita">${platoImp.plato}</p>
+            <p>$ ${platoImp.costo}</p>
+        </div>`);
     }
+
 
 
     if (entrada1 == "vegano") {
@@ -149,8 +152,6 @@ function precioZ() {
     }
 
     sessionStorage.setItem(`precioZona`, precio)
-
-
 };
 
 //----------------
@@ -181,6 +182,10 @@ function total() {
         div2.append(`El valor es ${totalFinal}`)
 
     };
+
+    carrito.append(`
+    <div class="valor">El valor es ${totalFinal}</div>
+    `)
 };
 
 //----------------
@@ -201,26 +206,4 @@ function cerrarCarr() {
     carrito.hide()
 }
 
-//----------------
-
-/*
-for (let w = 0; w < arrayPlatos.length; w++) {
-    console.log(`${arrayPlatos[w].plato} sale ${arrayPlatos[w].costo}`);
-}
-
-<div class="kart-card">
-            <p class="negrita">Comun</p>
-            <p>$200</p>
-        </div>
-
-function crearCard() {
-        for (let w = 0; w < arrayPlatos.length; w++) {
-            carrito.append(`<div class="kart-card">
-            <p class="negrita">${arrayPlatos[w].plato}</p>
-            <p>$ ${arrayPlatos[w].costo}</p>
-        </div>`)
-        }
-    }
-*/
-
-//-----------------
+//---------------
