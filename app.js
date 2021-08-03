@@ -77,10 +77,19 @@ function precioP() {
 
         let platoImp = arrayPlatos[arrayPlatos.length - 1];
 
-        carrito.append(`<div class="kart-card">
-            <p class="negrita">${platoImp.plato}</p>
-            <p>$ ${platoImp.costo}</p>
-        </div>`);
+        $.get(jsonURL, function(request, state) {
+                if (state === "success") {
+
+                    carrito.append(`<div class="kart-card">
+                <p class="negrita">${platoImp.plato}</p>
+                <p>$${platoImp.costo}</p>
+                <img src="${request[0].url}"></img>
+                </div>`)
+
+                }
+            }
+
+        )
     }
 
 
@@ -89,19 +98,19 @@ function precioP() {
         precio = 180
         calculoPrecio();
         crearCard();
-        fotoPlato();
+
 
     } else if (entrada1 == "comun") {
         precio = 200
         calculoPrecio();
         crearCard();
-        fotoPlato();
+
 
     } else if (entrada1 == "economico") {
         precio = 150
         calculoPrecio();
         crearCard();
-        fotoPlato();
+
 
     } else {
         error()
@@ -214,19 +223,21 @@ function cerrarCarr() {
 
 //---------------
 
-function fotoPlato() {
+/*function fotoPlato() {
 
-    $.get(jsonURL, function gatito(request, state) {
+    $.get(jsonURL, function(request, state) {
             if (state === "success") {
 
-                $(".kart-card").append(`
+                carrito.append(`<div class="kart-card">
+                <p class="negrita">${platoImp.plato}</p>
+                <p>$${platoImp.costo}</p>
                 <img src="${request[0].url}"></img>
-                `)
+                </div>`)
 
             }
         }
 
     )
-};
+};*/
 
 //---------------
