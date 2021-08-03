@@ -14,6 +14,8 @@ class Plato {
     }
 };
 
+const jsonURL = "https://api.thecatapi.com/v1/images/search"
+
 // identificadores 
 
 let btnAdd = $("#agregar");
@@ -87,16 +89,19 @@ function precioP() {
         precio = 180
         calculoPrecio();
         crearCard();
+        fotoPlato();
 
     } else if (entrada1 == "comun") {
         precio = 200
         calculoPrecio();
         crearCard();
+        fotoPlato();
 
     } else if (entrada1 == "economico") {
         precio = 150
         calculoPrecio();
         crearCard();
+        fotoPlato();
 
     } else {
         error()
@@ -206,5 +211,22 @@ function abrirCarr() {
 function cerrarCarr() {
     carrito.hide()
 }
+
+//---------------
+
+function fotoPlato() {
+
+    $.get(jsonURL, function gatito(request, state) {
+            if (state === "success") {
+
+                $(".kart-card").append(`
+                <img src="${request[0].url}"></img>
+                `)
+
+            }
+        }
+
+    )
+};
 
 //---------------

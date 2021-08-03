@@ -1,0 +1,18 @@
+{
+    "platos": [{
+            "name": "vegano",
+            "precio": "180",
+            "foto": "https://delantaldealces.com/wp-content/uploads/2016/08/seitan-verduras-curry-3.jpg"
+        },
+        {
+            "name": "comun",
+            "precio": "200",
+            "foto": "https://t1.rg.ltmcdn.com/es/images/8/9/0/img_ensalada_de_garbanzos_vegana_59098_orig.jpg"
+        },
+        {
+            "name": "economico",
+            "precio": "150",
+            "foto": "https://d37k6lxrz24y4c.cloudfront.net/v2/es-ar/e9dc924f238fa6cc29465942875fe8f0/6930c88c-084e-4f85-8aba-98c1fb3270aa-600.jpg"
+        }
+    ]
+}

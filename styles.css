@@ -40,6 +40,7 @@ div {
 #popup-ok,
 #popup-error {
     position: fixed;
+    display: none;
     top: 0px;
     width: 96%;
     z-index: 105;
@@ -112,4 +113,11 @@ div {
     border: 1px solid darkred;
     text-align: center;
     font-weight: bold;
+}
+
+
+/* --------------------------- */
+
+.kart-card img {
+    width: 150px;
 }
