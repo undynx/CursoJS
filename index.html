@@ -23,48 +23,52 @@
 </head>
 
 <body>
+    <div id="contenido">
+        <div class="centrado">
+            <h1>Restaurante Maik</h1> <i class="em em-frog" aria-role="presentation" aria-label="FROG FACE"></i>
+        </div>
 
-    <h1>Restaurante Maik</h1> <i class="em em-frog" aria-role="presentation" aria-label="FROG FACE"></i>
+        <h3 id="titulo" class="centrado">¿Qué deseas pedir hoy?</h3>
 
-    <h3 id="titulo" class="borde">¿Qué deseas pedir hoy?</h3>
+        <div id="div1">
 
-    <div id="div1" class="borde">
-
-        <p id="parr1">Escribí "vegano", "comun" o "economico"</p>
-        <input type="text" id="entrada1" placeholder="Escribí aquí">
-        <button id="agregar">Agregar al carrito</button>
-        <p id="parr2">Si deseas pedir algo más escribilo en el input y presioná agregar nuevamente</p>
-        <p id="parr3">Sino, presioná el botón siguiente!</p>
-        <button id="sig">Siguiente</button>
-
-    </div>
-
-    <br>
-
-    <div id="div2"></div>
-
-    <br>
-
-
-    <button id="btn-carrito">Ir al Carrito</button>
-    <button id="recargar">Recargar</button>
-
-
-    <div id="carrito">
-        <span id="headerCarr">
-            <h3 id="titulo-carrito">Carrito</h3>
-            <br>
-            <button id="cerrar-carrito">X</button>
-        </span>
-        <div id="pedidos">
+            <p id="parr1">Escribí "vegano", "comun" o "economico"</p>
+            <input type="text" id="entrada1" placeholder="Escribí aquí">
+            <button id="agregar">Agregar al carrito</button>
+            <p id="parr2">Si deseas pedir algo más escribilo en el input y presioná agregar nuevamente</p>
+            <p id="parr3">Sino, presioná el botón siguiente!</p>
+            <button id="sig">Siguiente</button>
 
         </div>
 
-        <div id="displayTotal">
+        <br>
 
+        <div id="div2"></div>
+
+        <br>
+
+        <div id="botones">
+            <button id="btn-carrito" class="achicar-boton">Abrir Carrito</button>
+            <button id="borrar" class="achicar-boton">Borrar último</button>
+            <button id="recargar" class="achicar-boton">Vaciar Carrito</button>
+        </div>
+
+
+        <div id="carrito">
+            <span id="headerCarr">
+                <h3 id="titulo-carrito">Carrito</h3>
+                <br>
+                <button id="cerrar-carrito">X</button>
+            </span>
+            <div id="pedidos">
+
+            </div>
+
+            <div id="displayTotal">
+
+            </div>
         </div>
     </div>
-
 
     <!-- push notifications -->
     <div id="popup-ok">

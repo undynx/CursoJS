@@ -1,14 +1,20 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #b4d6c1;
-    padding-top: 10px;
-    padding-left: 5px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 
 h1 {
     font-weight: bold;
     font-size: 25px;
     padding-left: 2px;
+    display: inline;
+}
+
+i {
     display: inline;
 }
 
@@ -27,11 +33,30 @@ div {
     background-color: #4E9C81;
 }
 
+#contenido {
+    width: 380px;
+    height: 510px;
+    background-color: #f5f5dc;
+    padding: 25px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-/* borde */
+.centrado {
+    text-align: center;
+}
 
-.borde {
-    border-left: 3px solid #4E9C81;
+.achicar-boton {
+    width: 100px;
+    margin: 5px;
+    display: inline;
+}
+
+#botones {
+    display: flex;
+    justify-content: center;
 }
 
 

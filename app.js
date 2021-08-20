@@ -31,6 +31,7 @@ let btnCerrCarr = $("#cerrar-carrito")
 let carrito = $("#carrito")
 let contPedidos = $("#pedidos")
 let displayTotal = $("#displayTotal")
+let btnBorrar = $("#borrar")
 
 
 // EVENTOS --------------------------------------------------------------------
@@ -40,6 +41,7 @@ btnSig.on("click", cambiarTextos);
 refresh.on("click", reload);
 btnCarr.click(abrirCarr);
 btnCerrCarr.click(cerrarCarr);
+btnBorrar.click(borrarUltimo)
 
 // FUNCIONES ------------------------------------------------------------------
 
@@ -127,7 +129,7 @@ function cambiarTextos() {
     } else {
         // cambiar los parrafos
         titulo.text(`Ahora elegí la zona de envío`);
-        parr1.text(`Escribí "z1", "z2" o "z3"`);
+        parr1.text(`Escribí "zona1", "zona2" o "zona3", o simplemente "z1", "z2" o "z3"`);
         parr2.text(``);
         parr3.text(`Luego, clickeá en listo`);
 
@@ -156,13 +158,13 @@ function precioZ() {
     let entrada2 = $(`#newInput`).val().toLowerCase()
 
 
-    if (entrada2 == "z1") {
+    if (entrada2 == "z1" || "zona1") {
         precio = 20
 
-    } else if (entrada2 == "z2") {
+    } else if (entrada2 == "z2" || "zona2") {
         precio = 30
 
-    } else if (entrada2 == "z3") {
+    } else if (entrada2 == "z3" || "zona3") {
         precio = 50
     }
 
@@ -223,21 +225,7 @@ function cerrarCarr() {
 
 //---------------
 
-/*function fotoPlato() {
-
-    $.get(jsonURL, function(request, state) {
-            if (state === "success") {
-
-                carrito.append(`<div class="kart-card">
-                <p class="negrita">${platoImp.plato}</p>
-                <p>$${platoImp.costo}</p>
-                <img src="${request[0].url}"></img>
-                </div>`)
-
-            }
-        }
-
-    )
-};*/
-
-//---------------
+function borrarUltimo() {
+    arrayPlatos.pop()
+    carrito[(length - 1)].removeChild()
+}
