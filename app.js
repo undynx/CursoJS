@@ -227,5 +227,12 @@ function cerrarCarr() {
 
 function borrarUltimo() {
     arrayPlatos.pop()
-    carrito[(length - 1)].removeChild()
+    $(`.kart-card`)[ultimo()].remove()
 }
+
+function ultimo() {
+    let ultimaCard = $(`.kart-card`).length
+    return ultimaCard - 1
+}
+
+//$(`.kart-card`)[1].remove()
